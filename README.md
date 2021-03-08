@@ -14,7 +14,7 @@ This framework contains a separate class which builds on the aforementioned func
 ### Tutorial 2: Factor Graphs
 *Under Development*
 
-### Tutorial 2: Hidden Markov Models (HMM)
+### Tutorial 3: Hidden Markov Models (HMM)
 In this tutorial, we use a HMM to determine whether each datapoint in a two-dimensional data stream was generated from one of two different Gaussian distributions. In this example, we will define a HMM to generate the data, and run the same model back over the generated data to re-infer the hidden states. To begin, we initialize a blank HMM and set the number of states and observed output variables.
 ```matlab
 % Set the number of states and observations
