@@ -43,4 +43,4 @@ viterbi_states = markov.viterbi(observations, 'plot', 'knownStates', states);
 In reality of course, the parameters of the HMM must be learned from the data and will not be available a priori. As this model was developed as an extensible framework, such functionality may be added in the future with methods such as the Baum-Welch algorithm. In the meantime, this tutorial serves as an example of the utility of this framework for performing a variety of higher-level tasks with probabilistic graphical models.
 
 ### Additional Help
-Additional help is available for each function in the framework by typing `help <Class>.<function> in the command line.
+Additional help is available for each function in the framework by typing `help <Class>.<function>` in the command line.
