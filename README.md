@@ -38,7 +38,8 @@ fever = fever.define('parents', {pneumonia, flu, foodPoisoning});
 graph = Graph(summer, hayFever, pneumonia, flu, foodPoisoning, rash, respiratory, ...
   cough, gastric, vomit, fatigue, fever);
 ```
-We then build a table from the observations in `dataset.dat`. The function `getObservations()` is provided in the `tutorials` folder.
+![Tutorial 1 Graph](https://raw.githubusercontent.com/jonzia/GraphicalModeling/main/tutorials/tutorial_1_graph.png)
+The resultant graph is shown above. We then build a table from the observations in `dataset.dat`. The function `getObservations()` is provided in the `tutorials` folder.
 ```matlab
 % Load the dataset
 dataset = load('dataset.dat');
