@@ -1,18 +1,15 @@
 # Probabilistic Graphical Modeling
 
+This collection of MATLAB classes provides an extensible framework for building probabilistic graphical models. Users can define directional or factor graphs, learn or pre-define conditional probability tables, query nodes of the graph, perform variable elimination, and more. The graphs contain the necessary functionality to handle continuous or discrete values, perform message passing, and recursively solve factor graphs. A tutorial of the full functionality of this framework is under development.
+
+This framework contains a separate class which builds on the aforementioned functionality to implement hidden Markov modeling (HMM) with hidden state inference using the Viterbi algorithm. A tutorial for implementing HMMs with this framework is provided below.
+
 ## Table of Contents
-1. [Summary](#summary)
 2. [How to Use](#how-to-use)
 3. [Tutorial 1: Directional Graphs](#tutorial-1-directional-graphs)
 4. [Tutorial 2: Factor Graphs](#tutorial-2-factor-graphs)
 5. [Tutorial 3: Hidden Markov Models](#tutorial-3-hidden-markov-models-hmm)
 6. [Additional Help](#additional-help)
-
-## Summary
-
-This collection of MATLAB classes provides an extensible framework for building probabilistic graphical models. Users can define directional or factor graphs, learn or pre-define conditional probability tables, query nodes of the graph, perform variable elimination, and more. The graphs contain the necessary functionality to handle continuous or discrete values, perform message passing, and recursively solve factor graphs. A tutorial of the full functionality of this framework is under development.
-
-This framework contains a separate class which builds on the aforementioned functionality to implement hidden Markov modeling (HMM) with hidden state inference using the Viterbi algorithm. A tutorial for implementing HMMs with this framework is provided below.
 
 ## How to Use
 
@@ -65,24 +62,6 @@ Once the data table is loaded, we use the table to set the conditional probabili
 graph = graph.setConditionals(tab);
 % Set assignments
 graph = graph.setAssignments();
-```
-To compare our results with the ground-truth, we load the data in `joint.dat` and compute the L1 distance between our estimated joint probability distribution and the ground truth.
-```matlab
-% Load the joint dataset
-joint = load('joint.dat');
-
-% Construct a table from the data
-% Get variable combinations
-jointTab = getObservations(joint(:,1), varnames);
-% Add probabilities to table
-jointVarnames = varnames; jointVarnames{13} = 'probability';
-jointTab = [jointTab table(joint(:, 2))]; jointTab.Properties.VariableNames = jointVarnames;
-
-% For each row in the table, get the probability of assignment
-graph = graph.prob(jointTab);
-
-% Get L1 distance
-dist = norm(graph.probabilities.probability - joint(:, 2), 1); disp(dist)
 ```
 
 #### Querying the Model
