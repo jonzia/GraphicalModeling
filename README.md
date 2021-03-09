@@ -1,5 +1,13 @@
 # Probabilistic Graphical Modeling
 
+## Table of Contents
+1. [Summary](#summary)
+2. [How to Use](#how-to-use)
+3. [Tutorial 1: Directional Graphs](#tutorial-1-directional-graphs)
+4. [Tutorial 2: Factor Graphs](#tutorial-2-factor-graphs)
+5. [Tutorial 3: Hidden Markov Models](#tutorial-3-hidden-markov-models-hmm)
+6. [Additional Help](#additional-help)
+
 ## Summary
 
 This collection of MATLAB classes provides an extensible framework for building probabilistic graphical models. Users can define directional or factor graphs, learn or pre-define conditional probability tables, query nodes of the graph, perform variable elimination, and more. The graphs contain the necessary functionality to handle continuous or discrete values, perform message passing, and recursively solve factor graphs. A tutorial of the full functionality of this framework is under development.
