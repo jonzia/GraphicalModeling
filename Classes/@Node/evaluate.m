@@ -38,7 +38,9 @@ if obj.type == NodeType.variable
     end
     
     % Write the value
-    [~, idx] = max(message.table.probability); obj = obj.write(obj.values{idx});
+    [~, idx] = max(message.table.probability);
+    obj = obj.write(obj.factor.table.(obj.name)(idx));
+    %obj = obj.write(obj.values{idx});
     
 end
 

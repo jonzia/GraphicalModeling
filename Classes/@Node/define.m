@@ -24,13 +24,12 @@ cp = false; val = false; gaussian = false;
 % Parse optional inputs
 if ~isempty(varargin)
     for arg = 1:length(varargin)
-        if strcmp(varargin{arg}, 'parents'); obj.parents = varargin{arg + 1};
-        elseif strcmp(varargin{arg}, 'factor') && ~isa(varargin{arg}, 'NodeType'); obj.factor = varargin{arg + 1}; cp = true;
-        elseif strcmp(varargin{arg}, 'values'); obj.values = varargin{arg + 1}; val = true;
-        elseif strcmp(varargin{arg}, 'gaussian'); gaussian = true;
-        elseif strcmp(varargin{arg}, 'tol'); tol = varargin{arg + 1};
-        elseif strcmp(varargin{arg}, 'numPoints'); numPoints = varargin{arg + 1};
-        end
+        try if strcmp(varargin{arg}, 'parents'); obj.parents = varargin{arg + 1}; end; catch; end
+        try if strcmp(varargin{arg}, 'factor') && ~isa(varargin{arg}, 'NodeType'); obj.factor = varargin{arg + 1}; cp = true; end; catch; end
+        try if strcmp(varargin{arg}, 'values'); obj.values = varargin{arg + 1}; val = true; end; catch; end
+        try if strcmp(varargin{arg}, 'gaussian'); gaussian = true; end; catch; end
+        try if strcmp(varargin{arg}, 'tol'); tol = varargin{arg + 1}; end; catch; end
+        try if strcmp(varargin{arg}, 'numPoints'); numPoints = varargin{arg + 1}; end; catch; end
     end
 end
 
@@ -97,7 +96,7 @@ if ~cp
     obj.factor = obj.factor.makeFactor(tempNames, tempValues, {'probability'});
     
     % Make the factor into a valid conditional probability distribution
-    obj.factor = obj.factor.makeDistribution(obj);
+    % obj.factor = obj.factor.makeDistribution(obj);
     
 end
 
