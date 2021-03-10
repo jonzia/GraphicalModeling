@@ -111,7 +111,7 @@ h = cell(100, 1); x = cell(100, 1); y = cell(100, 1);
 ```
 Note that the factor nodes are indicated by `psi` while the variable nodes lack this prefix. The structure of the HMM graph is illustrated in the image below. Note that the red arrows indicate message passing along the graph.
 
-IMAGE
+![Factor Graph for HMM](https://raw.githubusercontent.com/jonzia/GraphicalModeling/main/tutorials/tutoria_2_graph.png)
 We then set the initial conditions of the nodes; factor nodes are initialized with a probability table while variable nodes are not. We start with the initial timestep, then populate the subsequent timesteps.
 ```matlab
 % Set initial conditions
