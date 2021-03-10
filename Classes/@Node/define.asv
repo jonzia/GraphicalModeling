@@ -25,7 +25,7 @@ cp = false; val = false; gaussian = false;
 if ~isempty(varargin)
     for arg = 1:length(varargin)
         if strcmp(varargin{arg}, 'parents'); obj.parents = varargin{arg + 1};
-        elseif strcmp(varargin{arg}, 'factor') && ~isa(varargin{arg}, 'NodeType'); obj.factor = varargin{arg + 1}; cp = true;
+        elseif strcmp(varargin{arg}, 'factor'); obj.factor = varargin{arg + 1}; cp = true;
         elseif strcmp(varargin{arg}, 'values'); obj.values = varargin{arg + 1}; val = true;
         elseif strcmp(varargin{arg}, 'gaussian'); gaussian = true;
         elseif strcmp(varargin{arg}, 'tol'); tol = varargin{arg + 1};
@@ -63,14 +63,11 @@ if gaussian
 end
 
 % Initialize the node with a factor table if it is a factor node and a
-% factor table has not been provided already, and the factor node does not
-% have any parents
-if obj.type == NodeType.factor && ~cp && isempty(obj.parents)
+% factor table has not been provided already
+if obj.type == NodeType.factor && ~cp
     
-    % Create a factor with random probability distribution
-    fac = obj.factor.makeFactor({obj.name}, {obj.values}, {'probability'});
-    fac.tableNames = {obj.name, 'probability'};
-    fac.tableValues = obj.values;
+    % Create a factor
+    fac = obj.factor.makeFactor(obj.name, {obj.values}, {'
     
 end
 

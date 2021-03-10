@@ -49,21 +49,22 @@ end
 % For factor nodes, whittle the table with each incoming message
 if obj.type == NodeType.factor
     
+    % If the node has no parents, its value is the most likely option
+    if
+    
     % Set placeholder
     temp = obj.factor;
     
-    if ~isempty(obj.parents)
-        % Whittle the probability tables
-        for i = 1:length(messages)
-            rows = temp.getSubtable(messages{i});
-            temp.table = temp.table(rows, :);
-            % Remove the corresponding column from the table
-            temp.table.(obj.parents{i}.name) = [];
-            % Get the index of the parent
-            for idx = 1:length(temp.tableNames)
-                if strcmp(temp.tableNames{idx}, obj.parents{i}.name)
-                    temp.tableNames(idx) = []; temp.tableValues(idx) = []; break;
-                end
+    % Whittle the probability tables
+    for i = 1:length(messages)
+        rows = temp.getSubtable(messages{i});
+        temp.table = temp.table(rows, :);
+        % Remove the corresponding column from the table
+        temp.table.(obj.parents{i}.name) = [];
+        % Get the index of the parent
+        for idx = 1:length(temp.tableNames)
+            if strcmp(temp.tableNames{idx}, obj.parents{i}.name)
+                temp.tableNames(idx) = []; temp.tableValues(idx) = []; break;
             end
         end
     end
